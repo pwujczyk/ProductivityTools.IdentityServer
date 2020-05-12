@@ -16,8 +16,10 @@ namespace ProductivityTools.IdentityServer
             };
 
         public static IEnumerable<ApiResource> Apis =>
-            new ApiResource[] 
-            { };
+            new List<ApiResource>
+            {
+                new ApiResource("ProductivityTools.Meetings", "API for Meeting application")
+            };
         
         public static IEnumerable<Client> Clients =>
             new Client[] 
