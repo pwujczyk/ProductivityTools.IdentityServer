@@ -11,6 +11,7 @@ namespace ProductivityTools.IdentityServer
 {
     public class Startup
     {
+        private static string CorsProfile = "Default";
         public IWebHostEnvironment Environment { get; }
 
         public Startup(IWebHostEnvironment environment)
@@ -30,6 +31,17 @@ namespace ProductivityTools.IdentityServer
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
+
+            services.AddCors(options =>
+            {
+                // this defines a CORS policy called "default"
+                options.AddPolicy(CorsProfile, policy =>
+                {
+                    policy.AllowAnyOrigin()//.WithOrigins("https://localhost:6002")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app)
@@ -39,6 +51,7 @@ namespace ProductivityTools.IdentityServer
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(CorsProfile);
             // uncomment if you want to add MVC
             app.UseStaticFiles();
             app.UseRouting();
