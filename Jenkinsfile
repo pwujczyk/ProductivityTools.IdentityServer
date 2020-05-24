@@ -22,6 +22,12 @@ pipeline {
                 url: 'https://github.com/pwujczyk/ProductivityTools.IdentityServer.git'
             }
         }
+		stage('workplacePath'){
+			steps{
+				def workspace = pwd()
+				echo ${workplace}
+			}
+		}
         stage('build') {
             steps {
                 bat(script: "dotnet publish ProductivityTools.IdentityServer.sln -c Release", returnStdout: true)
