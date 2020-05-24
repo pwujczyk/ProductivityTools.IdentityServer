@@ -43,7 +43,7 @@ pipeline {
         }
         stage('copyIisFiles') {
             steps {
-                bat('xcopy "C:\\Program Files (x86)\\Jenkins\\workspace\\IdentityServer\\ProductivityTools.IdentityServer\\bin\\Release\\netcoreapp3.1\\publish\\" "C:\\Bin\\IdentityServer\\" /O /X /E /H /K')
+                bat('xcopy "C:\\Program Files (x86)\\Jenkins\\workspace\\IdentityServer\\ProductivityTools.IdentityServer\\bin\\Release\\netcoreapp3.1\\publish" "C:\\Bin\\IdentityServer\\" /O /X /E /H /K')
             }
         }
 
