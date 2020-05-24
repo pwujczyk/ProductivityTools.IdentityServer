@@ -24,8 +24,7 @@ pipeline {
         }
 		stage('workplacePath'){
 			steps{
-				def workspace = pwd()
-				echo ${workplace}
+				echo "${env.WORKSPACE}"
 			}
 		}
         stage('build') {
