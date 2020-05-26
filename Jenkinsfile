@@ -54,7 +54,7 @@ pipeline {
 
         stage('startMeetingsOnIis') {
             steps {
-                bat('%windir%\\system32\\inetsrv\\appcmd start site /site.name:meetings')
+                bat('%windir%\\system32\\inetsrv\\appcmd start site /site.name:IdentityServer')
             }
         }
         stage('byebye') {
