@@ -3,11 +3,11 @@
     "SelfHost": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5001/.well-known/openid-configuration",
+      "launchUrl": "https://localhost:5001/.well-known/openid-configuration",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5001"
+      "applicationUrl": "https://localhost:5001"
     }
   }
 }

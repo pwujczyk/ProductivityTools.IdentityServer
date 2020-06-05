@@ -47,6 +47,16 @@ namespace ProductivityTools.IdentityServer
                         "ProductivityTools.Meetings.API"
                     }
                 },
+                new Client
+                {
+                      ClientId = "WPFApplication",
+                      AllowedGrantTypes = GrantTypes.ClientCredentials,
+                      ClientSecrets =
+                      {
+                        new Secret("secret".Sha256())
+                      },
+                      AllowedScopes = { "ProductivityTools.Meetings.API" }
+                },
             };
 
     }
