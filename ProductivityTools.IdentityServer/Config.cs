@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
@@ -56,6 +57,24 @@ namespace ProductivityTools.IdentityServer
                         new Secret("secret".Sha256())
                       },
                       AllowedScopes = { "ProductivityTools.Meetings.API" }
+                },
+                 new Client
+                {
+                    ClientId = "MeetingsWpfApplication",
+                   ClientName = "Native Client (Code with PKCE)",
+
+                    RedirectUris = { "http://127.0.0.1/sample-wpf-app" },
+                    PostLogoutRedirectUris = { "https://notused" },
+
+                    RequireClientSecret = false,
+                    RequireConsent = false,
+
+                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
+                    RequirePkce = true,
+                    AllowedScopes = { "openid", "profile" },
+
+                    AllowOfflineAccess = true,
+                    RefreshTokenUsage = TokenUsage.ReUse
                 },
             };
 
