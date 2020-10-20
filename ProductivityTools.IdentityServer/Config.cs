@@ -21,7 +21,8 @@ namespace ProductivityTools.IdentityServer
         public static IEnumerable<ApiResource> Apis =>
             new List<ApiResource>
             {
-                new ApiResource("ProductivityTools.Meetings.API", "API for Meeting application")
+                new ApiResource("ProductivityTools.Meetings.API", "API for Meeting application"),
+                new ApiResource("purchase.api", "API for purchase application")
             };
 
         public static IEnumerable<Client> Clients =>
@@ -48,6 +49,28 @@ namespace ProductivityTools.IdentityServer
                         "ProductivityTools.Meetings.API"
                     }
                 },
+
+                 new Client
+                {
+                    ClientId = "purchase",
+                    ClientName = "Purchase",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+
+                    RedirectUris =           { "http://localhost:3000/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/" },
+                    AllowedCorsOrigins =
+                    {
+                        "http://localhost:3000"
+                    },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "purchase.api"
+                    }
+                },
                 new Client
                 {
                       ClientId = "WPFApplication",
@@ -58,7 +81,7 @@ namespace ProductivityTools.IdentityServer
                       },
                       AllowedScopes = { "ProductivityTools.Meetings.API" }
                 },
-                 new Client
+                new Client
                 {
                     ClientId = "MeetingsWpfApplication",
                    ClientName = "Native Client (Code with PKCE)",
