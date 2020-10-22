@@ -58,7 +58,7 @@ namespace ProductivityTools.IdentityServer
                     AllowAccessTokensViaBrowser = true,
 
                     RedirectUris =           { "http://localhost:3000/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:3000/" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/signout-oidc" },
                     AllowedCorsOrigins =
                     {
                         "http://localhost:3000"
