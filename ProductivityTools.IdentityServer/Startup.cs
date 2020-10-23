@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProductivityTools.MasterConfiguration;
 
 namespace ProductivityTools.IdentityServer
 {
@@ -24,10 +25,13 @@ namespace ProductivityTools.IdentityServer
             // uncomment, if you want to add an MVC-based UI
             services.AddControllersWithViews();
 
+            services.AddScoped<ITestUsers, TestUsers>();
+
             var builder = services.AddIdentityServer()
                 .AddInMemoryIdentityResources(Config.Ids)
                 .AddInMemoryApiResources(Config.Apis)
                 .AddInMemoryClients(Config.Clients);
+            
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();

@@ -4,6 +4,7 @@
 
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using ProductivityTools.MasterConfiguration;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -51,7 +52,12 @@ namespace ProductivityTools.IdentityServer
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                 .ConfigureAppConfiguration((hostingContext, config) =>
+                 {
+                     config.AddMasterConfiguration(true);
+                 })
                 .UseSerilog()
+            
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
