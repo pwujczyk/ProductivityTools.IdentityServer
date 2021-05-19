@@ -60,7 +60,7 @@ namespace ProductivityTools.IdentityServer
                     PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
                     AllowedCorsOrigins =
                     {
-                        "https://meetingsweb.z13.web.core.windows.net/"
+                        "https://meetingsweb.z13.web.core.windows.net"
                     },
 
                     AllowedScopes =
