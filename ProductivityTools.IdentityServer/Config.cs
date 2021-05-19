@@ -30,7 +30,7 @@ namespace ProductivityTools.IdentityServer
             {
                 new Client
                 {
-                    ClientId = "js",
+                    ClientId = "devmeetingsweb",
                     ClientName = "JavaScript Client",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
@@ -40,6 +40,27 @@ namespace ProductivityTools.IdentityServer
                     AllowedCorsOrigins =
                     {
                         "http://localhost:3000"
+                    },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "ProductivityTools.Meetings.API"
+                    }
+                },
+                new Client
+                {
+                    ClientId = "prodmeetingsweb",
+                    ClientName = "JavaScript Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+
+                    RedirectUris =           { "https://meetingsweb.z13.web.core.windows.net/signin-callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
+                    AllowedCorsOrigins =
+                    {
+                        "https://meetingsweb.z13.web.core.windows.net/"
                     },
 
                     AllowedScopes =
