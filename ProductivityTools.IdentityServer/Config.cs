@@ -31,7 +31,7 @@ namespace ProductivityTools.IdentityServer
                 new Client
                 {
                     ClientId = "devmeetingsweb",
-                    ClientName = "JavaScript Client",
+                    ClientName = "Development meetings web client",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
@@ -52,7 +52,7 @@ namespace ProductivityTools.IdentityServer
                 new Client
                 {
                     ClientId = "prodmeetingsweb",
-                    ClientName = "JavaScript Client",
+                    ClientName = "Production Meetings Web client",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
@@ -112,6 +112,7 @@ namespace ProductivityTools.IdentityServer
 
                     RequireClientSecret = false,
                     RequireConsent = false,
+                    AccessTokenLifetime=10000, //?
 
                     AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
                     RequirePkce = true,
