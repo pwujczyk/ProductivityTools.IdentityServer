@@ -55,6 +55,7 @@ namespace ProductivityTools.IdentityServer
                     ClientName = "Production Meetings Web client",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
+                    AccessTokenLifetime=7200,
 
                     RedirectUris =           { "https://meetingsweb.z13.web.core.windows.net/signin-callback.html" },
                     PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
