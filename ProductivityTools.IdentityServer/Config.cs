@@ -53,9 +53,10 @@ namespace ProductivityTools.IdentityServer
                 {
                     ClientId = "prodmeetingsweb",
                     ClientName = "Production Meetings Web client",
-                    AllowedGrantTypes = GrantTypes.Implicit,
+                  //  AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedGrantTypes = GrantTypes.Hybrid,
                     AllowAccessTokensViaBrowser = true,
-                    AccessTokenLifetime=7200,
+                    AccessTokenLifetime=17200,
 
                     RedirectUris =           { "https://meetingsweb.z13.web.core.windows.net/signin-callback.html" },
                     PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
@@ -68,8 +69,10 @@ namespace ProductivityTools.IdentityServer
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "ProductivityTools.Meetings.API"
-                    }
+                        "ProductivityTools.Meetings.API",
+                        IdentityServerConstants.StandardScopes.OfflineAccess
+                    },
+                    AllowOfflineAccess=true
                 },
 
                  new Client
