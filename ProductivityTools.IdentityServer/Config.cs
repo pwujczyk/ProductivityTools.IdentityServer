@@ -53,8 +53,7 @@ namespace ProductivityTools.IdentityServer
                 {
                     ClientId = "prodmeetingsweb",
                     ClientName = "Production Meetings Web client",
-                  //  AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
                     AccessTokenLifetime=17200,
 
@@ -69,8 +68,7 @@ namespace ProductivityTools.IdentityServer
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "ProductivityTools.Meetings.API",
-                        IdentityServerConstants.StandardScopes.OfflineAccess
+                        "ProductivityTools.Meetings.API"
                     },
                     AllowOfflineAccess=true
                 },
