@@ -5,16 +5,20 @@
 using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
+using Microsoft.Extensions.Configuration;
+using ProductivityTools.MasterConfiguration;
 using System.Collections.Generic;
 
 namespace ProductivityTools.IdentityServer
 {
     public static class Config
     {
+        static IConfigurationRoot configuration = new ConfigurationBuilder().AddMasterConfiguration().Build();
+
         public static IEnumerable<IdentityResource> Ids =>
             new IdentityResource[]
             {
-                 new IdentityResources.OpenId(),
+                new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
             };
 
@@ -22,7 +26,8 @@ namespace ProductivityTools.IdentityServer
             new List<ApiResource>
             {
                 new ApiResource("ProductivityTools.Meetings.API", "API for Meeting application"),
-                new ApiResource("purchase.api", "API for purchase application")
+                new ApiResource("purchase.api", "API for purchase application"),
+                new ApiResource("GetTask3.API", "API for GetTask3 Application")
             };
 
         public static IEnumerable<Client> Clients =>
@@ -100,29 +105,39 @@ namespace ProductivityTools.IdentityServer
                       AllowedGrantTypes = GrantTypes.ClientCredentials,
                       ClientSecrets =
                       {
-                        new Secret("secret".Sha256())
+                        new Secret(configuration["MeetingsWPFApplication"].Sha256())
                       },
                       AllowedScopes = { "ProductivityTools.Meetings.API" }
                 },
                 new Client
                 {
-                    ClientId = "MeetingsWpfApplication",
-                   ClientName = "Native Client (Code with PKCE)",
-
-                    RedirectUris = { "http://127.0.0.1/sample-wpf-app" },
-                    PostLogoutRedirectUris = { "https://notused" },
-
-                    RequireClientSecret = false,
-                    RequireConsent = false,
-                    AccessTokenLifetime=10000, //?
-
-                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
-                    RequirePkce = true,
-                    AllowedScopes = { "openid", "profile" },
-
-                    AllowOfflineAccess = true,
-                    RefreshTokenUsage = TokenUsage.ReUse
+                      ClientId = "GetTask3Cmdlet",
+                      AllowedGrantTypes = GrantTypes.ClientCredentials,
+                      ClientSecrets =
+                      {
+                        new Secret(configuration["GetTask3Cmdlet"].Sha256())
+                      },
+                      AllowedScopes = { "GetTask3.API" }
                 },
+                //new Client
+                //{
+                //    ClientId = "MeetingsWpfApplication",
+                //   ClientName = "Native Client (Code with PKCE)",
+
+                //    RedirectUris = { "http://127.0.0.1/sample-wpf-app" },
+                //    PostLogoutRedirectUris = { "https://notused" },
+
+                //    RequireClientSecret = false,
+                //    RequireConsent = false,
+                //    AccessTokenLifetime=10000, //?
+
+                //    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
+                //    RequirePkce = true,
+                //    AllowedScopes = { "openid", "profile" },
+
+                //    AllowOfflineAccess = true,
+                //    RefreshTokenUsage = TokenUsage.ReUse
+                //},
             };
 
     }
