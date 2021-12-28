@@ -27,7 +27,7 @@ namespace ProductivityTools.IdentityServer
             {
                 new ApiResource("ProductivityTools.Meetings.API", "API for Meeting application"),
                 new ApiResource("purchase.api", "API for purchase application"),
-                new ApiResource("GetTask3.API", "API for GetTask3 Application")
+                new ApiResource("GetTask3.API", "API for GetTas k3 Application")
             };
 
         public static IEnumerable<Client> Clients =>
