@@ -121,7 +121,7 @@ namespace ProductivityTools.IdentityServer
                 },
                 new Client
                 {
-                    ClientId = "devtask3web",
+                    ClientId = "devtasks3web",
                     ClientName = "Development task3 web client",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
