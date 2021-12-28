@@ -119,6 +119,28 @@ namespace ProductivityTools.IdentityServer
                       },
                       AllowedScopes = { "GetTask3.API" }
                 },
+                new Client
+                {
+                    ClientId = "devtask3web",
+                    ClientName = "Development task3 web client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+
+                    RedirectUris =           { "http://localhost:3000/signin-callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
+                    AllowedCorsOrigins =
+                    {
+                        "http://localhost:3000"
+                    },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "GetTask3.API"
+                    }
+                },
+
                 //new Client
                 //{
                 //    ClientId = "MeetingsWpfApplication",
