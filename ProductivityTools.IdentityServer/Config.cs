@@ -140,6 +140,27 @@ namespace ProductivityTools.IdentityServer
                         "GetTask3.API"
                     }
                 },
+                new Client
+                {
+                    ClientId = "prodtask3web",
+                    ClientName = "Development task3 web client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+
+                    RedirectUris =           { "https://task3web.z13.web.core.windows.net/signin-callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
+                    AllowedCorsOrigins =
+                    {
+                        "https://task3web.z13.web.core.windows.net/"
+                    },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "GetTask3.API"
+                    }
+                },
 
                 //new Client
                 //{
