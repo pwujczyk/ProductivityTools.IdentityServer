@@ -162,7 +162,8 @@ namespace ProductivityTools.IdentityServer
                         "GetTask3.API"
                     }
                 },
-                   new Client
+
+                  new Client
                 {
                     ClientId = "devsalariesweb",
                     ClientName = "Development salaries web client",
@@ -182,7 +183,7 @@ namespace ProductivityTools.IdentityServer
                         IdentityServerConstants.StandardScopes.Profile,
                         "Salaries.API"
                     }
-                },
+                  },
 
                 //new Client
                 //{
