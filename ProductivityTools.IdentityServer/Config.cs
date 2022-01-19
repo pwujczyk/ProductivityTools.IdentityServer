@@ -27,7 +27,8 @@ namespace ProductivityTools.IdentityServer
             {
                 new ApiResource("ProductivityTools.Meetings.API", "API for Meeting application"),
                 new ApiResource("purchase.api", "API for purchase application"),
-                new ApiResource("GetTask3.API", "API for GetTask3 Application")
+                new ApiResource("GetTask3.API", "API for GetTask3 Application"),
+                new ApiResource("Salaries.API", "API for Salaries Application")
             };
 
         public static IEnumerable<Client> Clients =>
@@ -159,6 +160,27 @@ namespace ProductivityTools.IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "GetTask3.API"
+                    }
+                },
+                   new Client
+                {
+                    ClientId = "devsalariesweb",
+                    ClientName = "Development salaries web client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+
+                    RedirectUris =           { "http://localhost:3000/signin-callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
+                    AllowedCorsOrigins =
+                    {
+                        "http://localhost:3000"
+                    },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "Salaries.API"
                     }
                 },
 
