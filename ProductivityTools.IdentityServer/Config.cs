@@ -184,7 +184,27 @@ namespace ProductivityTools.IdentityServer
                         "Salaries.API"
                     }
                   },
+                     new Client
+                {
+                    ClientId = "prodsalariesweb",
+                    ClientName = "Production salaries web client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
 
+                    RedirectUris =           { "https://salariesweb.z35.web.core.windows.net/signin-callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
+                    AllowedCorsOrigins =
+                    {
+                        "https://salariesweb.z35.web.core.windows.net/"
+                    },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "GetTask3.API"
+                    }
+                },
                 //new Client
                 //{
                 //    ClientId = "MeetingsWpfApplication",
