@@ -195,7 +195,7 @@ namespace ProductivityTools.IdentityServer
                     PostLogoutRedirectUris = { "http://localhost:3000/index.html" },
                     AllowedCorsOrigins =
                     {
-                        "https://salariesweb.z35.web.core.windows.net/"
+                        "https://salariesweb.z35.web.core.windows.net"
                     },
 
                     AllowedScopes =
