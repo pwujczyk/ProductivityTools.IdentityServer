@@ -202,7 +202,7 @@ namespace ProductivityTools.IdentityServer
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                         "Salaries.API"
+                        "Salaries.API"
                     }
                 },
                 //new Client
