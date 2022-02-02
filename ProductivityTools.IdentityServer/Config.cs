@@ -120,6 +120,17 @@ namespace ProductivityTools.IdentityServer
                       },
                       AllowedScopes = { "GetTask3.API" }
                 },
+
+                new Client
+                {
+                      ClientId = "TMCmdlet",
+                      AllowedGrantTypes = GrantTypes.ClientCredentials,
+                      ClientSecrets =
+                      {
+                        new Secret("pass1")
+                      },
+                      AllowedScopes = { "TM.API" }
+                },
                 new Client
                 {
                     ClientId = "devtasks3web",
