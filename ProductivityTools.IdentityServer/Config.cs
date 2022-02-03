@@ -128,7 +128,7 @@ namespace ProductivityTools.IdentityServer
                       AllowedGrantTypes = GrantTypes.ClientCredentials,
                       ClientSecrets =
                       {
-                        new Secret("pass1")
+                        new Secret("pass1".Sha256())
                       },
                       AllowedScopes = { "TM.API" }
                 },
